@@ -1,37 +1,114 @@
-// script.js
-// Toggle tema claro/escuro
-const themeToggle = document.getElementById("themeToggle");
-const body = document.body;
+// Dados dos destinos do Pantanal
+const destinations = [
+  {
+    id: 1,
+    name: "Poconé - MT",
+    description:
+      "Porta de entrada do Pantanal Norte, ideal para safáris fotográficos e observação de onças-pintadas.",
+    image: "https://placehold.co/400x200/4a7c59/ffffff?text=Poconé+MT",
+    features: ["Onças", "Safári Fotográfico", "Trilhas"],
+    category: "wildlife",
+  },
+  {
+    id: 2,
+    name: "Bonito - MS",
+    description:
+      "Famoso por suas águas cristalinas, rios subterrâneos e mergulhos com peixes coloridos.",
+    image: "https://placehold.co/400x200/8db580/ffffff?text=Bonito+MS",
+    features: ["Mergulho", "Cachoeiras", "Grutas"],
+    category: "adventure",
+  },
+  {
+    id: 3,
+    name: "Corumbá - MS",
+    description:
+      "Cidade histórica às margens do Rio Paraguai, com acesso ao Pantanal Sul e pesca esportiva.",
+    image: "https://placehold.co/400x200/2c5f2d/ffffff?text=Corumbá+MS",
+    features: ["Pesca", "História", "Pantanal Sul"],
+    category: "fishing",
+  },
+  {
+    id: 4,
+    name: "Aquidauana - MS",
+    description:
+      "Conhecida como a 'Capital do Pantanal', oferece experiências autênticas da cultura pantaneira.",
+    image: "https://placehold.co/400x200/4a90e2/ffffff?text=Aquidauana+MS",
+    features: ["Cultura", "Rodeios", "Gastronomia"],
+    category: "culture",
+  },
+  {
+    id: 5,
+    name: "Cáceres - MT",
+    description:
+      "Região rica em biodiversidade, perfeita para observação de aves e vida selvagem.",
+    image: "https://placehold.co/400x200/ff6b35/ffffff?text=Cáceres+MT",
+    features: ["Aves", "Biodiversidade", "Pantanal Norte"],
+    category: "wildlife",
+  },
+  {
+    id: 6,
+    name: "Ladário - MS",
+    description:
+      "Cidade portuária com acesso ao Rio Paraguai e experiências únicas de navegação pelo Pantanal.",
+    image: "https://placehold.co/400x200/212529/ffffff?text=Ladário+MS",
+    features: ["Navegação", "Rios", "Paisagens"],
+    category: "adventure",
+  },
+];
 
-// Verifica se há preferência salva no localStorage
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark") {
-  body.classList.add("dark-mode");
-  themeToggle.textContent = "☀️";
+// Função para renderizar destinos
+function renderDestinations(destinationsToShow = destinations) {
+  const container = document.getElementById("destinations-container");
+  container.innerHTML = "";
+
+  destinationsToShow.forEach((destination) => {
+    const card = document.createElement("div");
+    card.className = "destination-card";
+    card.innerHTML = `
+            <div class="card-image" style="background-image: url('${
+              destination.image
+            }')"></div>
+            <div class="card-content">
+                <h3>${destination.name}</h3>
+                <p>${destination.description}</p>
+                <div class="card-features">
+                    ${destination.features
+                      .map(
+                        (feature) => `
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>${feature}</span>
+                        </div>
+                    `
+                      )
+                      .join("")}
+                </div>
+            </div>
+        `;
+    container.appendChild(card);
+  });
 }
 
-themeToggle.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
+// Filtros
+document.querySelectorAll(".filter-btn").forEach((button) => {
+  button.addEventListener("click", function () {
+    // Remove classe active de todos os botões
+    document.querySelectorAll(".filter-btn").forEach((btn) => {
+      btn.classList.remove("active");
+    });
 
-  if (body.classList.contains("dark-mode")) {
-    themeToggle.textContent = "☀️";
-    localStorage.setItem("theme", "dark");
-  } else {
-    themeToggle.textContent = "🌙";
-    localStorage.setItem("theme", "light");
-  }
-});
+    // Adiciona classe active ao botão clicado
+    this.classList.add("active");
 
-// Smooth scrolling para links de navegação
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop - 80,
-        behavior: "smooth",
-      });
+    const filter = this.getAttribute("data-filter");
+
+    if (filter === "all") {
+      renderDestinations();
+    } else {
+      const filteredDestinations = destinations.filter(
+        (dest) => dest.category === filter
+      );
+      renderDestinations(filteredDestinations);
     }
   });
 });
@@ -39,29 +116,51 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // Formulário de contato
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  alert("Obrigado por entrar em contato! Responderemos em breve.");
+  alert(
+    "Sua solicitação foi enviada com sucesso! Entraremos em contato em breve para planejar sua viagem ao Pantanal."
+  );
   this.reset();
 });
 
-// Animação simples para cards ao rolar
-const observerOptions = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.1,
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
+// Smooth scroll para links de navegação
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   });
-}, observerOptions);
-
-document.querySelectorAll(".card, .gallery-item").forEach((el) => {
-  el.style.opacity = "0";
-  el.style.transform = "translateY(20px)";
-  el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-  observer.observe(el);
 });
+
+// Toggle de tema claro/escuro
+const themeToggle = document.getElementById("themeToggle");
+const body = document.body;
+const icon = themeToggle.querySelector("i");
+
+// Verifica se o tema escuro está salvo no localStorage
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-mode");
+  icon.classList.remove("fa-moon");
+  icon.classList.add("fa-sun");
+}
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+
+  if (body.classList.contains("dark-mode")) {
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+    localStorage.setItem("theme", "dark");
+  } else {
+    icon.classList.remove("fa-sun");
+    icon.classList.add("fa-moon");
+    localStorage.setItem("theme", "light");
+  }
+});
+
+// Inicializa os destinos
+renderDestinations();

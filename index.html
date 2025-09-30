@@ -3,123 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantanal Selvagem - Ecoturismo no Coração do Brasil</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Pantanal Explorer - Turismo Personalizado</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <span>🌿</span>
-                    <span>Pantanal Selvagem</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#experiencias">Experiências</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#contato">Contato</a></li>
+        <div class="header-container">
+            <div class="logo">
+                <i class="fas fa-feather-alt"></i>
+                <span>Pantanal Explorer</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#destinations">Destinos</a></li>
+                    <li><a href="#filter">Filtros</a></li>
+                    <li><a href="#contact">Contato</a></li>
                 </ul>
-                <button class="theme-toggle" id="themeToggle">🌙</button>
-                <button class="mobile-menu-btn">☰</button>
             </nav>
         </div>
     </header>
 
-    <section id="inicio" class="hero">
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Descubra o Pantanal Mato-grossense</h1>
-            <p>Ecoturismo sustentável em um dos ecossistemas mais ricos do planeta. Viva a natureza em sua forma mais pura e autêntica.</p>
-            <a href="#experiencias" class="btn">Explore Nossas Experiências</a>
+            <h1>Descubra o Pantanal</h1>
+            <p>Experiências personalizadas na maior planície alagável do mundo. Aventura, natureza e cultura em um só lugar.</p>
+            <a href="#destinations" class="btn">Explorar Destinos</a>
         </div>
     </section>
 
-    <section id="experiencias" class="section">
-        <div class="container">
-            <h2 class="section-title">Experiências Únicas</h2>
-            <div class="cards">
-                <div class="card">
-                    <img src="https://placehold.co/400x200/8B6B42/FFFFFF?text=Saf%C3%A1ri+Fotogr%C3%A1fico+On%C3%A7a" alt="Safári Fotográfico">
-                    <div class="card-content">
-                        <h3>Safári Fotográfico</h3>
-                        <p>Capture a vida selvagem do Pantanal com nossos guias especializados. Onças, capivaras, jacarés e mais de 650 espécies de aves esperam por você.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://placehold.co/400x200/2E5D3F/FFFFFF?text=Trilhas+Ecol%C3%B3gicas" alt="Trilhas Ecológicas">
-                    <div class="card-content">
-                        <h3>Trilhas Ecológicas</h3>
-                        <p>Explore as trilhas do Pantanal com guias locais que conhecem cada canto deste paraíso natural. Aprenda sobre a flora e fauna da região.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://placehold.co/400x200/D4A017/FFFFFF?text=Passeios+de+Bote" alt="Passeios de Bote">
-                    <div class="card-content">
-                        <h3>Passeios de Bote</h3>
-                        <p>Navegue pelos rios e lagoas do Pantanal em embarcações ecológicas. Observe a vida aquática e as aves que habitam as margens.</p>
-                    </div>
-                </div>
+    <section id="destinations" class="container">
+        <div class="section-title">
+            <h2>Destinos Imperdíveis</h2>
+            <p>Explore os lugares mais incríveis do Pantanal Mato-Grossense e Sul-Mato-Grossense</p>
+        </div>
+        <div class="destinations-grid" id="destinations-container">
+            <!-- Destinations will be populated by JavaScript -->
+        </div>
+    </section>
+
+    <section id="filter" class="filter-section">
+        <div class="filter-container">
+            <div class="section-title">
+                <h2>Filtre sua Experiência</h2>
+                <p>Personalize sua viagem de acordo com seus interesses</p>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="wildlife">Vida Selvagem</button>
+                <button class="filter-btn" data-filter="fishing">Pesca</button>
+                <button class="filter-btn" data-filter="culture">Cultura</button>
+                <button class="filter-btn" data-filter="adventure">Aventura</button>
             </div>
         </div>
     </section>
 
-    <section id="galeria" class="section">
-        <div class="container">
-            <h2 class="section-title">Galeria do Pantanal</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="https://placehold.co/300x250/8B4513/FFFFFF?text=On%C3%A7a+Pintada" alt="Onça Pintada">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/300x250/FF6B35/FFFFFF?text=Tucano" alt="Tucano">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/300x250/4ECDC4/FFFFFF?text=Capivara" alt="Capivara">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/300x250/45B7D1/FFFFFF?text=Jacar%C3%A9" alt="Jacaré">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/300x250/FFBE0B/FFFFFF?text=P%C3%B4r+do+Sol" alt="Pôr do Sol">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://placehold.co/300x250/FB5607/FFFFFF?text=Flora+Local" alt="Flora Local">
-                </div>
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="section-title">
+                <h2>Planeje sua Viagem</h2>
+                <p>Entre em contato para criar um roteiro personalizado</p>
             </div>
-        </div>
-    </section>
-
-    <section id="contato" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Entre em Contato</h2>
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="nome">Nome Completo</label>
-                        <input type="text" id="nome" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="mensagem">Mensagem</label>
-                        <textarea id="mensagem" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Enviar Mensagem</button>
-                </form>
-            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="interests">Interesses</label>
+                    <select id="interests" required>
+                        <option value="">Selecione seus interesses</option>
+                        <option value="wildlife">Observação de Vida Selvagem</option>
+                        <option value="fishing">Pesca Esportiva</option>
+                        <option value="culture">Cultura Pantaneira</option>
+                        <option value="adventure">Aventura e Ecoturismo</option>
+                        <option value="photography">Fotografia de Natureza</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" placeholder="Descreva sua viagem dos sonhos..."></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar Solicitação</button>
+            </form>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Pantanal Selvagem - Ecoturismo Sustentável no Pantanal Mato-grossense</p>
-            <p>Preservando a natureza, uma experiência de cada vez.</p>
+        <div class="footer-content">
+            <div class="logo">
+                <i class="fas fa-feather-alt"></i>
+                <span>Pantanal Explorer</span>
+            </div>
+            <p>Conectando você à natureza mais preservada do Brasil</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2024 Pantanal Explorer. Todos os direitos reservados.</p>
         </div>
     </footer>
-
-    <a href="#inicio" class="floating-button">↑</a>
 
     <script src="script.js"></script>
 </body>
