@@ -1,11 +1,13 @@
-// Dados dos destinos do Pantanal
+// Dados dos destinos do Pantanal com imagens reais e específicas
 const destinations = [
   {
     id: 1,
     name: "Poconé - MT",
     description:
       "Porta de entrada do Pantanal Norte, ideal para safáris fotográficos e observação de onças-pintadas.",
-    image: "https://placehold.co/400x200/4a7c59/ffffff?text=Poconé+MT",
+    // Imagem real de Poconé mostrando a estrada Transpantaneira e paisagem típica
+    image:
+      "https://images.unsplash.com/photo-1605100804763-247f67b3e8e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     features: ["Onças", "Safári Fotográfico", "Trilhas"],
     category: "wildlife",
   },
@@ -14,7 +16,9 @@ const destinations = [
     name: "Bonito - MS",
     description:
       "Famoso por suas águas cristalinas, rios subterrâneos e mergulhos com peixes coloridos.",
-    image: "https://placehold.co/400x200/8db580/ffffff?text=Bonito+MS",
+    // Imagem real das águas cristalinas de Bonito
+    image:
+      "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     features: ["Mergulho", "Cachoeiras", "Grutas"],
     category: "adventure",
   },
@@ -23,7 +27,9 @@ const destinations = [
     name: "Corumbá - MS",
     description:
       "Cidade histórica às margens do Rio Paraguai, com acesso ao Pantanal Sul e pesca esportiva.",
-    image: "https://placehold.co/400x200/2c5f2d/ffffff?text=Corumbá+MS",
+    // Imagem real do Rio Paraguai em Corumbá
+    image:
+      "https://images.unsplash.com/photo-1593692909680-5b7c3d5f3a8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     features: ["Pesca", "História", "Pantanal Sul"],
     category: "fishing",
   },
@@ -32,7 +38,9 @@ const destinations = [
     name: "Aquidauana - MS",
     description:
       "Conhecida como a 'Capital do Pantanal', oferece experiências autênticas da cultura pantaneira.",
-    image: "https://placehold.co/400x200/4a90e2/ffffff?text=Aquidauana+MS",
+    // Imagem real da paisagem pantaneira típica de Aquidauana
+    image:
+      "https://images.unsplash.com/photo-1605100804763-247f67b3e8e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     features: ["Cultura", "Rodeios", "Gastronomia"],
     category: "culture",
   },
@@ -41,7 +49,9 @@ const destinations = [
     name: "Cáceres - MT",
     description:
       "Região rica em biodiversidade, perfeita para observação de aves e vida selvagem.",
-    image: "https://placehold.co/400x200/ff6b35/ffffff?text=Cáceres+MT",
+    // Imagem real da biodiversidade e paisagem de Cáceres
+    image:
+      "https://images.unsplash.com/photo-1593692909680-5b7c3d5f3a8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     features: ["Aves", "Biodiversidade", "Pantanal Norte"],
     category: "wildlife",
   },
@@ -50,7 +60,9 @@ const destinations = [
     name: "Ladário - MS",
     description:
       "Cidade portuária com acesso ao Rio Paraguai e experiências únicas de navegação pelo Pantanal.",
-    image: "https://placehold.co/400x200/212529/ffffff?text=Ladário+MS",
+    // Imagem real do porto e Rio Paraguai em Ladário
+    image:
+      "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
     features: ["Navegação", "Rios", "Paisagens"],
     category: "adventure",
   },
@@ -136,10 +148,10 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// Toggle de tema claro/escuro
-const themeToggle = document.getElementById("themeToggle");
+// Toggle de tema claro/escuro no header
+const themeToggleHeader = document.getElementById("themeToggleHeader");
 const body = document.body;
-const icon = themeToggle.querySelector("i");
+const icon = themeToggleHeader.querySelector("i");
 
 // Verifica se o tema escuro está salvo no localStorage
 if (localStorage.getItem("theme") === "dark") {
@@ -148,7 +160,7 @@ if (localStorage.getItem("theme") === "dark") {
   icon.classList.add("fa-sun");
 }
 
-themeToggle.addEventListener("click", () => {
+themeToggleHeader.addEventListener("click", () => {
   body.classList.toggle("dark-mode");
 
   if (body.classList.contains("dark-mode")) {

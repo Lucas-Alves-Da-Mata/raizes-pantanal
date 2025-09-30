@@ -70,6 +70,12 @@ header {
     color: var(--accent-color);
 }
 
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 nav ul {
     display: flex;
     list-style: none;
@@ -89,37 +95,31 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.theme-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: var(--card-bg);
-    border: 2px solid var(--primary-color);
-    color: var(--primary-color);
-    width: 50px;
-    height: 50px;
+.theme-toggle-header {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: var(--shadow);
-    z-index: 1000;
     transition: var(--transition);
 }
 
-.theme-toggle:hover {
-    transform: rotate(20deg) scale(1.1);
-    background: var(--primary-color);
-    color: white;
+.theme-toggle-header:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
 
-.theme-toggle i {
-    font-size: 1.2rem;
+.theme-toggle-header i {
+    font-size: 1rem;
 }
 
 .hero {
-    background: var(--hero-bg), url('https://placehold.co/1920x600/2c5f2d/ffffff?text=Pantanal+Trees') center/cover no-repeat;
+    background: var(--hero-bg), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background-blend-mode: overlay;
     height: 80vh;
     display: flex;
     align-items: center;
@@ -127,8 +127,6 @@ nav a:hover {
     text-align: center;
     color: white;
     padding: 0 2rem;
-    background-image: url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80'), var(--hero-bg);
-    background-blend-mode: overlay;
 }
 
 .hero-content {
@@ -385,6 +383,12 @@ footer {
     .header-container {
         flex-direction: column;
         gap: 1rem;
+    }
+    
+    .header-right {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
     }
     
     nav ul {
