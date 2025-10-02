@@ -14,7 +14,6 @@
     --text-color: var(--dark-color);
     --card-bg: white;
     --header-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    --hero-bg: linear-gradient(rgba(44, 95, 45, 0.7), rgba(44, 95, 45, 0.85));
 }
 
 .dark-mode {
@@ -22,7 +21,6 @@
     --text-color: #e0e0e0;
     --card-bg: #1e1e1e;
     --header-bg: linear-gradient(135deg, #1a361a, #2a4a36);
-    --hero-bg: linear-gradient(rgba(26, 54, 26, 0.85), rgba(26, 54, 26, 0.95));
 }
 
 * {
@@ -118,7 +116,7 @@ nav a:hover {
 }
 
 .hero {
-    background: var(--hero-bg), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background: linear-gradient(rgba(44, 95, 45, 0.7), rgba(44, 95, 45, 0.85)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     background-blend-mode: overlay;
     height: 80vh;
     display: flex;
@@ -216,6 +214,7 @@ nav a:hover {
     height: 200px;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
 .card-content {
@@ -251,9 +250,9 @@ nav a:hover {
 }
 
 .feature i {
-    color: var(--water-color);
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    display: block;
 }
 
 .feature span {
