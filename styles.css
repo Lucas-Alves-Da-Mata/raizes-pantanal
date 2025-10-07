@@ -93,6 +93,45 @@ nav a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.login-btn {
+    background-color: var(--sunset-color);
+    color: white;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.login-btn:hover {
+    background-color: #e55a2b;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .theme-toggle-header {
     background: rgba(255, 255, 255, 0.15);
     color: white;
@@ -310,6 +349,19 @@ nav a:hover {
     padding: 0 2rem;
 }
 
+/* Estilos específicos para o título e parágrafo de contato em PRETO */
+.contact-title h2 {
+    color: #000000 !important;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-title p {
+    color: #000000 !important;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -326,6 +378,7 @@ nav a:hover {
 .form-group label {
     margin-bottom: 0.5rem;
     font-weight: 500;
+    color: #000000 !important;
 }
 
 .form-group input,
@@ -390,6 +443,11 @@ footer {
         align-items: center;
     }
     
+    .header-actions {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
     nav ul {
         gap: 1rem;
         flex-wrap: wrap;
@@ -408,5 +466,9 @@ footer {
     .filter-btn {
         width: 100%;
         max-width: 300px;
+    }
+    
+    .contact-title h2 {
+        font-size: 2rem;
     }
 }
