@@ -21,6 +21,7 @@
             --bg-color: var(--light-color);
             --text-color: var(--dark-color);
             --card-bg: white;
+            --icon-gray: #6c757d; /* Cinza para o ícone */
         }
 
         .dark-mode {
@@ -94,7 +95,7 @@
             right: 0;
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.15);
-            color: white;
+            color: var(--icon-gray); /* Cor cinza para o ícone */
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -110,15 +111,18 @@
         .dark-mode .theme-toggle-register {
             background: rgba(0, 0, 0, 0.3);
             border: 2px solid rgba(255, 255, 255, 0.5);
+            color: var(--icon-gray); /* Mantém cinza no modo escuro */
         }
 
         .theme-toggle-register:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-50%) scale(1.1);
+            color: var(--icon-gray); /* Mantém cinza no hover */
         }
 
         .dark-mode .theme-toggle-register:hover {
             background: rgba(0, 0, 0, 0.5);
+            color: var(--icon-gray); /* Mantém cinza no hover modo escuro */
         }
 
         .theme-toggle-register i {

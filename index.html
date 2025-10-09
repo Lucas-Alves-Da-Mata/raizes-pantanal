@@ -19,7 +19,6 @@
                     <ul>
                         <li><a href="#home">Início</a></li>
                         <li><a href="#destinations">Destinos</a></li>
-                        <li><a href="#filter">Filtros</a></li>
                         <li><a href="#contact">Contato</a></li>
                     </ul>
                 </nav>
@@ -40,10 +39,48 @@
         <div class="hero-content">
             <h1>Descubra o Pantanal</h1>
             <p>Experiências personalizadas na maior planície alagável do mundo. Aventura, natureza e cultura em um só lugar.</p>
-            <a href="#destinations" class="btn">Explorar Destinos</a>
+            <a href="#filter" class="btn">Filtrar Experiências</a>
         </div>
     </section>
 
+    <!-- Seção de Filtros REALÇADA -->
+    <section id="filter" class="filter-section">
+        <div class="filter-container">
+            <div class="filter-header">
+                <h2>Filtre sua Experiência</h2>
+                <p>Personalize sua viagem de acordo com seus interesses</p>
+                <div class="filter-decoration">
+                    <div class="filter-line"></div>
+                    <i class="fas fa-filter"></i>
+                    <div class="filter-line"></div>
+                </div>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>Todos os Destinos</span>
+                </button>
+                <button class="filter-btn" data-filter="wildlife">
+                    <i class="fas fa-paw"></i>
+                    <span>Vida Selvagem</span>
+                </button>
+                <button class="filter-btn" data-filter="fishing">
+                    <i class="fas fa-fish"></i>
+                    <span>Pesca Esportiva</span>
+                </button>
+                <button class="filter-btn" data-filter="culture">
+                    <i class="fas fa-masks-theater"></i>
+                    <span>Cultura Pantaneira</span>
+                </button>
+                <button class="filter-btn" data-filter="adventure">
+                    <i class="fas fa-mountain"></i>
+                    <span>Aventura e Ecoturismo</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Destinos -->
     <section id="destinations" class="container">
         <div class="section-title">
             <h2>Destinos Imperdíveis</h2>
@@ -51,8 +88,8 @@
         </div>
         <div class="destinations-grid" id="destinations-container">
             <!-- Cards de destinos -->
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('img/safari-onça-pintada-pantanal-.jpg');"></div>
+            <div class="destination-card" data-category="wildlife">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1593692909680-5b7c3d5f3a8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="card-content">
                     <h3>Poconé - MT</h3>
                     <p>Porta de entrada do Pantanal Norte, ideal para safáris fotográficos e observação de onças-pintadas.</p>
@@ -73,8 +110,8 @@
                 </div>
             </div>
 
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('img/bonito_way_bonito_ms_agua_mais_cristalina_mundo_rio_sucuri_bonito_ms.png');"></div>
+            <div class="destination-card" data-category="adventure">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="card-content">
                     <h3>Bonito - MS</h3>
                     <p>Famoso por suas águas cristalinas, rios subterrâneos e mergulhos com peixes coloridos.</p>
@@ -95,8 +132,8 @@
                 </div>
             </div>
 
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('img/pesca-esportiva_691816072.jpg');"></div>
+            <div class="destination-card" data-category="fishing">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1605100804763-247f67b3e8e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="card-content">
                     <h3>Corumbá - MS</h3>
                     <p>Cidade histórica às margens do Rio Paraguai, com acesso ao Pantanal Sul e pesca esportiva.</p>
@@ -117,8 +154,8 @@
                 </div>
             </div>
 
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('img/download.jpg');"></div>
+            <div class="destination-card" data-category="culture">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1593692909680-5b7c3d5f3a8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="card-content">
                     <h3>Aquidauana - MS</h3>
                     <p>Conhecida como a 'Capital do Pantanal', oferece experiências autênticas da cultura pantaneira.</p>
@@ -139,8 +176,8 @@
                 </div>
             </div>
 
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('img/48253e5a4bda21adf02a6c49a0a8ed3e.webp');"></div>
+            <div class="destination-card" data-category="wildlife">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1574375927938-8a8e5a5a8f3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="card-content">
                     <h3>Cáceres - MT</h3>
                     <p>Região rica em biodiversidade, perfeita para observação de aves e vida selvagem.</p>
@@ -161,8 +198,8 @@
                 </div>
             </div>
 
-            <div class="destination-card">
-                <div class="card-image" style="background-image: url('img/2afbde9e-1f75-4161-8d8f-92ca02cf47ff.jpg');"></div>
+            <div class="destination-card" data-category="adventure">
+                <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="card-content">
                     <h3>Ladário - MS</h3>
                     <p>Cidade portuária com acesso ao Rio Paraguai e experiências únicas de navegação pelo Pantanal.</p>
@@ -181,22 +218,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="filter" class="filter-section">
-        <div class="filter-container">
-            <div class="section-title">
-                <h2>Filtre sua Experiência</h2>
-                <p>Personalize sua viagem de acordo com seus interesses</p>
-            </div>
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">Todos</button>
-                <button class="filter-btn" data-filter="wildlife">Vida Selvagem</button>
-                <button class="filter-btn" data-filter="fishing">Pesca</button>
-                <button class="filter-btn" data-filter="culture">Cultura</button>
-                <button class="filter-btn" data-filter="adventure">Aventura</button>
             </div>
         </div>
     </section>
