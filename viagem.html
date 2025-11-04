@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantanal Transportes - Compre sua Passagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #0d5c2e 0%, #1a6d3b 30%, #2e8b57 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            color: white;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            background: linear-gradient(45deg, #4CAF50, #8BC34A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #fff, #e0f7fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+        }
+
+        .tagline {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .search-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 950px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .search-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #2e8b57, #4CAF50, #8BC34A);
+        }
+
+        .search-title {
+            font-family: 'Montserrat', sans-serif;
+            color: #2e8b57;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .search-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #2e8b57;
+            border-radius: 3px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .form-row > div {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #1a6d3b;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        label i {
+            color: #2e8b57;
+            font-size: 1.1rem;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e8f5e9;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f9fdfa;
+            font-weight: 600;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #2e8b57;
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.2);
+            background: white;
+        }
+
+        .search-btn {
+            background: linear-gradient(135deg, #2e8b57 0%, #1a6d3b 100%);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+        }
+
+        .search-btn:hover {
+            background: linear-gradient(135deg, #1a6d3b 0%, #0d5c2e 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+        }
+
+        .search-btn:active {
+            transform: translateY(0);
+        }
+
+        .results-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 950px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+            display: none;
+        }
+
+        .results-title {
+            font-family: 'Montserrat', sans-serif;
+            color: #2e8b57;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .results-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #2e8b57;
+            border-radius: 3px;
+        }
+
+        .trip-card {
+            border: 2px solid #e8f5e9;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f9fdfa 0%, #ffffff 100%);
+        }
+
+        .trip-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            border-color: #2e8b57;
+        }
+
+        .trip-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 5px;
+            background: linear-gradient(135deg, #2e8b57, #4CAF50);
+        }
+
+        .trip-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .route-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .route {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a6d3b;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .route-subtitle {
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .price-container {
+            text-align: right;
+            min-width: 120px;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0d5c2e;
+            margin-bottom: 5px;
+        }
+
+        .price-per-person {
+            font-size: 0.85rem;
+            color: #666;
+            text-decoration: line-through;
+        }
+
+        .trip-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+            padding: 15px 0;
+            border-top: 2px solid #e8f5e9;
+            border-bottom: 2px solid #e8f5e9;
+        }
+
+        .detail {
+            text-align: center;
+            padding: 15px 10px;
+            background: #e8f5e9;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .detail:hover {
+            background: #d4edda;
+            transform: scale(1.05);
+        }
+
+        .detail-icon {
+            font-size: 1.8rem;
+            color: #2e8b57;
+            margin-bottom: 8px;
+        }
+
+        .detail-value {
+            font-weight: 800;
+            color: #0d5c2e;
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .detail-label {
+            font-size: 0.85rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .amenities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding: 15px 0;
+        }
+
+        .amenity {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8f5e9;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #1a6d3b;
+            font-weight: 600;
+        }
+
+        .amenity i {
+            color: #2e8b57;
+        }
+
+        .book-btn {
+            background: linear-gradient(135deg, #2e8b57 0%, #1a6d3b 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(46, 139, 87, 0.3);
+        }
+
+        .book-btn:hover {
+            background: linear-gradient(135deg, #1a6d3b 0%, #0d5c2e 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(46, 139, 87, 0.4);
+        }
+
+        .info-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .info-box i {
+            color: #155724;
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        .info-content h4 {
+            color: #155724;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .info-content p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .savings-badge {
+            background: linear-gradient(135deg, #28a745, #218838);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 10px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .search-section, .results-section {
+                padding: 25px;
+                margin: 20px auto;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .trip-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+            }
+            
+            .price-container {
+                text-align: left;
+            }
+            
+            .price {
+                font-size: 1.6rem;
+            }
+            
+            .trip-details {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .amenities {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .trip-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-btn, .book-btn {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-bus"></i>
+                </div>
+            </div>
+            <h1>Pantanal Transportes</h1>
+            <p>Conectando o coração do Brasil com segurança, conforto e pontualidade. Viagens executivas pelo Mato Grosso e Mato Grosso do Sul com frota moderna e atendimento personalizado.</p>
+            <div class="tagline">
+                <i class="fas fa-shield-alt"></i> Seguro Viagem Incluso • Wi-Fi Gratuito • Ar Condicionado • Sanitário a Bordo
+            </div>
+        </header>
+
+        <section class="search-section">
+            <h2 class="search-title"><i class="fas fa-search-location"></i> Pesquise sua Passagem</h2>
+            <form id="searchForm">
+                <div class="form-group">
+                    <label for="origin"><i class="fas fa-map-marker-alt"></i> Origem</label>
+                    <select id="origin" required>
+                        <option value="">Selecione a cidade de origem</option>
+                        <optgroup label="Mato Grosso (MT)">
+                            <option value="cuiaba">Cuiabá - Capital</option>
+                            <option value="varzea-grande">Várzea Grande - 2ª maior cidade</option>
+                            <option value="rondonopolis">Rondonópolis - Sul do estado</option>
+                            <option value="sinop">Sinop - Centro-norte</option>
+                            <option value="barra-do-garcas">Barra do Garças - Vale do Araguaia</option>
+                            <option value="campo-verde">Campo Verde - Centro-sul</option>
+                            <option value="chapada-dos-guimaraes">Chapada dos Guimarães - Turismo</option>
+                            <option value="tangara-da-serra">Tangará da Serra - Oeste</option>
+                            <option value="lucas-do-rio-verde">Lucas do Rio Verde - Agricultura</option>
+                        </optgroup>
+                        <optgroup label="Mato Grosso do Sul (MS)">
+                            <option value="campo-grande">Campo Grande - Capital</option>
+                            <option value="dourados">Dourados - 2ª maior cidade</option>
+                            <option value="corumba">Corumbá - Fronteira com Bolívia</option>
+                            <option value="ponta-pora">Ponta Porã - Fronteira com Paraguai</option>
+                            <option value="três-lagoas">Três Lagoas - Indústria de celulose</option>
+                            <option value="navirai">Naviraí - Sul do estado</option>
+                            <option value="coimbra">Coimbra - Interior</option>
+                            <option value="bonito">Bonito - Turismo ecológico</option>
+                            <option value="aquidauana">Aquidauana - Pantanal</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="destination"><i class="fas fa-map-marker-alt"></i> Destino</label>
+                    <select id="destination" required>
+                        <option value="">Selecione a cidade de destino</option>
+                        <optgroup label="Mato Grosso (MT)">
+                            <option value="cuiaba">Cuiabá - Capital</option>
+                            <option value="varzea-grande">Várzea Grande - 2ª maior cidade</option>
+                            <option value="rondonopolis">Rondonópolis - Sul do estado</option>
+                            <option value="sinop">Sinop - Centro-norte</option>
+                            <option value="barra-do-garcas">Barra do Garças - Vale do Araguaia</option>
+                            <option value="campo-verde">Campo Verde - Centro-sul</option>
+                            <option value="chapada-dos-guimaraes">Chapada dos Guimarães - Turismo</option>
+                            <option value="tangara-da-serra">Tangará da Serra - Oeste</option>
+                            <option value="lucas-do-rio-verde">Lucas do Rio Verde - Agricultura</option>
+                        </optgroup>
+                        <optgroup label="Mato Grosso do Sul (MS)">
+                            <option value="campo-grande">Campo Grande - Capital</option>
+                            <option value="dourados">Dourados - 2ª maior cidade</option>
+                            <option value="corumba">Corumbá - Fronteira com Bolívia</option>
+                            <option value="ponta-pora">Ponta Porã - Fronteira com Paraguai</option>
+                            <option value="três-lagoas">Três Lagoas - Indústria de celulose</option>
+                            <option value="navirai">Naviraí - Sul do estado</option>
+                            <option value="coimbra">Coimbra - Interior</option>
+                            <option value="bonito">Bonito - Turismo ecológico</option>
+                            <option value="aquidauana">Aquidauana - Pantanal</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date"><i class="fas fa-calendar-day"></i> Data da Viagem</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="passengers"><i class="fas fa-users"></i> Passageiros</label>
+                        <select id="passengers" required>
+                            <option value="1">1 passageiro</option>
+                            <option value="2">2 passageiros</option>
+                            <option value="3">3 passageiros</option>
+                            <option value="4">4 passageiros</option>
+                            <option value="5">5 passageiros</option>
+                            <option value="6">6 passageiros</option>
+                            <option value="7">7 passageiros</option>
+                            <option value="8">8+ passageiros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i> Buscar Passagens Disponíveis
+                </button>
+            </form>
+        </section>
+
+        <section class="results-section" id="resultsSection">
+            <h2 class="results-title"><i class="fas fa-bus-alt"></i> Resultados da Busca</h2>
+            <div id="resultsContainer"></div>
+            
+            <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                <div class="info-content">
+                    <h4>Sobre Nossas Viagens</h4>
+                    <p>Todas as nossas viagens incluem: Wi-Fi gratuito de alta velocidade, carregadores USB em todos os assentos, ar condicionado regulável, sanitário moderno a bordo, seguro viagem incluso e equipe treinada para emergências. Aceitamos pagamentos via cartão de crédito, débito, PIX e boleto bancário.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const cities = {
+            cuiaba: 'Cuiabá - MT',
+            'varzea-grande': 'Várzea Grande - MT',
+            rondonopolis: 'Rondonópolis - MT',
+            sinop: 'Sinop - MT',
+            'barra-do-garcas': 'Barra do Garças - MT',
+            'campo-verde': 'Campo Verde - MT',
+            'chapada-dos-guimaraes': 'Chapada dos Guimarães - MT',
+            'tangara-da-serra': 'Tangará da Serra - MT',
+            'lucas-do-rio-verde': 'Lucas do Rio Verde - MT',
+            'campo-grande': 'Campo Grande - MS',
+            dourados: 'Dourados - MS',
+            corumba: 'Corumbá - MS',
+            'ponta-pora': 'Ponta Porã - MS',
+            'três-lagoas': 'Três Lagoas - MS',
+            navirai: 'Naviraí - MS',
+            coimbra: 'Coimbra - MS',
+            bonito: 'Bonito - MS',
+            aquidauana: 'Aquidauana - MS'
+        };
+
+        const cityDetails = {
+            cuiaba: { state: 'Mato Grosso', region: 'Centro-Oeste', population: '623 mil' },
+            'varzea-grande': { state: 'Mato Grosso', region: 'Centro-Oeste', population: '291 mil' },
+            rondonopolis: { state: 'Mato Grosso', region: 'Sul', population: '229 mil' },
+            sinop: { state: 'Mato Grosso', region: 'Norte', population: '149 mil' },
+            'barra-do-garcas': { state: 'Mato Grosso', region: 'Leste', population: '62 mil' },
+            'campo-verde': { state: 'Mato Grosso', region: 'Sul', population: '43 mil' },
+            'chapada-dos-guimaraes': { state: 'Mato Grosso', region: 'Centro-Sul', population: '20 mil' },
+            'tangara-da-serra': { state: 'Mato Grosso', region: 'Oeste', population: '97 mil' },
+            'lucas-do-rio-verde': { state: 'Mato Grosso', region: 'Norte', population: '71 mil' },
+            'campo-grande': { state: 'Mato Grosso do Sul', region: 'Centro-Sul', population: '916 mil' },
+            dourados: { state: 'Mato Grosso do Sul', region: 'Sul', population: '235 mil' },
+            corumba: { state: 'Mato Grosso do Sul', region: 'Oeste', population: '110 mil' },
+            'ponta-pora': { state: 'Mato Grosso do Sul', region: 'Sudoeste', population: '91 mil' },
+            'três-lagoas': { state: 'Mato Grosso do Sul', region: 'Leste', population: '127 mil' },
+            navirai: { state: 'Mato Grosso do Sul', region: 'Sul', population: '54 mil' },
+            coimbra: { state: 'Mato Grosso do Sul', region: 'Sudoeste', population: '7 mil' },
+            bonito: { state: 'Mato Grosso do Sul', region: 'Sul', population: '22 mil' },
+            aquidauana: { state: 'Mato Grosso do Sul', region: 'Centro-Oeste', population: '49 mil' }
+        };
+
+        const sampleTrips = [
+            { 
+                id: 1, 
+                from: 'cuiaba', 
+                to: 'campo-grande', 
+                price: 189.90, 
+                duration: '8h 30m', 
+                departure: '08:00', 
+                arrival: '16:30', 
+                busType: 'Leito Executivo',
+                amenities: ['Wi-Fi', 'USB', 'Ar Condicionado', 'Sanitário', 'TV a Bordo'],
+                distance: 690,
+                availableSeats: 28
+            },
+            { 
+                id: 2, 
+                from: 'campo-grande', 
+                to: 'cuiaba', 
+                price: 189.90, 
+                duration: '8h 30m', 
+                departure: '19:00', 
+                arrival: '03:30', 
+                busType: 'Leito Executivo',
+                amenities: ['Wi-Fi', 'USB', 'Ar Condicionado', 'Sanitário', 'TV a Bordo'],
+                distance: 690,
+                availableSeats: 15
+            },
+            { 
+                id: 3, 
+                from: 'corumba', 
+                to: 'campo-verde', 
+                price: 156.50, 
+                duration: '6h 15m', 
+                departure: '07:30', 
+                arrival: '13:45', 
+                busType: 'Semileito Conforto',
+                amenities: ['Wi-Fi', 'USB', 'Ar Condicionado', 'Sanitário'],
+                distance: 420,
+                availableSeats: 32
+            },
+            { 
+                id: 4, 
+                from: 'dourados', 
+                to: 'sinop', 
+                price: 234.80, 
+                duration: '12h 45m', 
+                departure: '20:00', 
+                arrival: '08:45', 
+                busType: 'Leito Premium',
+                amenities: ['Wi-Fi', 'USB', 'Ar Condicionado', 'Sanitário', 'TV a Bordo', 'Refeição'],
+                distance: 980,
+                availableSeats: 8
+            },
+            { 
+                id: 5, 
+                from: 'rondonopolis', 
+                to: 'três-lagoas', 
+                price: 142.30, 
+                duration: '5h 20m', 
+                departure: '14:00', 
+                arrival: '19:20', 
+                busType: 'Convencional Plus',
+                amenities: ['Wi-Fi', 'USB', 'Ar Condicionado', 'Sanitário'],
+                distance: 380,
+                availableSeats: 45
+            },
+            { 
+                id: 6, 
+                from: 'chapada-dos-guimaraes', 
+                to: 'bonito', 
+                price: 198.70, 
+                duration: '9h 10m', 
+                departure: '09:15', 
+                arrival: '18:25', 
+                busType: 'Leito Executivo',
+                amenities: ['Wi-Fi', 'USB', 'Ar Condicionado', 'Sanitário', 'TV a Bordo'],
+                distance: 720,
+                availableSeats: 22
+            },
+            { 
+                id: 7, 
+                from: 'aquidauana', 
+                to: 'cuiaba', 
+                price: 167.40, 
+                duration: '7h 45m', 
+                departure: '06:30', 
+                arrival: '14:15', 
+                busType: 'Semileito Conforto',
+                amenities: ['Wi-Fi', 'USB', 'Ar Condicionado', 'Sanitário'],
+                distance: 580,
+                availableSeats: 18
+            }
+        ];
+
+        document.getElementById('searchForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const origin = document.getElementById('origin').value;
+            const destination = document.getElementById('destination').value;
+            const date = document.getElementById('date').value;
+            const passengers = document.getElementById('passengers').value;
+            
+            if (origin === destination) {
+                alert('Origem e destino não podem ser iguais!');
+                return;
+            }
+            
+            if (parseInt(passengers) > 8) {
+                if (!confirm('Para grupos maiores que 8 pessoas, recomendamos contato direto com nossa central. Deseja continuar?')) {
+                    return;
+                }
+            }
+            
+            // Simular resultados
+            const results = sampleTrips.filter(trip => 
+                trip.from === origin && trip.to === destination
+            );
+            
+            displayResults(results, passengers, origin, destination, date);
+            document.getElementById('resultsSection').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function displayResults(trips, passengers, origin, destination, date) {
+            const container = document.getElementById('resultsContainer');
+            const passengersInt = parseInt(passengers);
+            const originalPrice = trips.length > 0 ? trips[0].price : 0;
+            const totalPrice = (originalPrice * passengersInt).toFixed(2);
+            const discount = passengersInt >= 4 ? (originalPrice * passengersInt * 0.1).toFixed(2) : 0;
+            const finalPrice = discount > 0 ? (parseFloat(totalPrice) - parseFloat(discount)).toFixed(2) : totalPrice;
+            
+            if (trips.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; background: #f8f9fa; border-radius: 16px; margin-bottom: 20px;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ffc107; margin-bottom: 20px;"></i>
+                        <h3 style="color: #856404; margin-bottom: 15px; font-size: 1.5rem;">Nenhuma passagem encontrada</h3>
+                        <p style="color: #666; font-size: 1.1rem; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+                            Não encontramos viagens disponíveis para a rota ${cities[origin]} → ${cities[destination]} na data selecionada. 
+                            Tente outras datas ou entre em contato com nossa central de atendimento.
+                        </p>
+                        <div style="margin-top: 25px; padding: 15px; background: #fff3cd; border-radius: 12px; border: 1px solid #ffeaa7;">
+                            <p style="color: #856404; margin: 0;">
+                                <i class="fas fa-phone"></i> Central de Atendimento: (65) 3000-0000
+                                <br>
+                                <i class="fas fa-clock"></i> Horário: Segunda a Domingo, 06h às 22h
+                            </p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = trips.map(trip => {
+                const tripTotalPrice = (trip.price * passengersInt).toFixed(2);
+                const hasDiscount = passengersInt >= 4;
+                const discountedPrice = hasDiscount ? (trip.price * passengersInt * 0.9).toFixed(2) : tripTotalPrice;
+                
+                return `
+                    <div class="trip-card">
+                        <div class="trip-header">
+                            <div class="route-info">
+                                <div class="route">${cities[trip.from]} → ${cities[trip.to]}</div>
+                                <div class="route-subtitle">
+                                    <i class="fas fa-road"></i> ${trip.distance} km • ${cityDetails[trip.from].region} → ${cityDetails[trip.to].region}
+                                </div>
+                            </div>
+                            <div class="price-container">
+                                <div class="price">R$ ${parseFloat(discountedPrice).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+                                ${hasDiscount ? `
+                                    <div style="color: #28a745; font-weight: 700; font-size: 0.9rem;">
+                                        <i class="fas fa-tags"></i> Economia de R$ ${(parseFloat(tripTotalPrice) - parseFloat(discountedPrice)).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                        <span class="savings-badge">10% OFF</span>
+                                    </div>
+                                ` : `
+                                    <div class="price-per-person">R$ ${trip.price.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} por pessoa</div>
+                                `}
+                            </div>
+                        </div>
+                        
+                        <div class="trip-details">
+                            <div class="detail">
+                                <div class="detail-icon"><i class="fas fa-clock"></i></div>
+                                <div class="detail-value">${trip.departure}</div>
+                                <div class="detail-label">Saída</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-icon"><i class="fas fa-map-marker-check"></i></div>
+                                <div class="detail-value">${trip.arrival}</div>
+                                <div class="detail-label">Chegada</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-icon"><i class="fas fa-hourglass-half"></i></div>
+                                <div class="detail-value">${trip.duration}</div>
+                                <div class="detail-label">Duração</div>
+                            </div>
+                            <div class="detail">
+                                <div class="detail-icon"><i class="fas fa-chair"></i></div>
+                                <div class="detail-value">${trip.availableSeats}</div>
+                                <div class="detail-label">Assentos</div>
+                            </div>
+                        </div>
+                        
+                        <div class="amenities">
+                            ${trip.amenities.map(amenity => `
+                                <div class="amenity">
+                                    <i class="fas fa-check-circle"></i> ${amenity}
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 20px;">
+                            <div style="color: #666; font-size: 0.9rem;">
+                                <i class="fas fa-bus"></i> Ônibus ${trip.busType} • 
+                                <i class="fas fa-calendar-day"></i> ${new Date(date).toLocaleDateString('pt-BR')}
+                            </div>
+                            <button class="book-btn" onclick="confirmBooking('${cities[trip.from]}', '${cities[trip.to]}', '${date}', ${passengersInt}, '${discountedPrice}', '${trip.departure}', '${trip.arrival}', '${trip.busType}')">
+                                <i class="fas fa-ticket-alt"></i> Reservar Passagem
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function confirmBooking(origin, destination, date, passengers, totalPrice, departure, arrival, busType) {
+            const confirmation = `
+                🎫 RESERVA DE PASSAGEM CONFIRMADA!
+                
+                🚌 Rota: ${origin} → ${destination}
+                📅 Data: ${new Date(date).toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                👥 Passageiros: ${passengers}
+                💰 Total: R$ ${parseFloat(totalPrice).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                🕐 Saída: ${departure}
+                🕒 Chegada: ${arrival}
+                🚌 Tipo: ${busType}
+                
+                ℹ️ Sua reserva será confirmada após o pagamento.
+                📞 Entraremos em contato para finalizar a compra.
+                ✅ Todas as viagens incluem seguro viagem e amenities premium.
+                
+                Obrigado por escolher Pantanal Transportes!
+                Conectando você com o coração do Brasil! 🇧🇷
+            `;
+            
+            alert(confirmation);
+        }
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').min = today;
+        document.getElementById('date').value = today;
+    </script>
+</body>
+</html>
+
