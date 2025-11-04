@@ -1,4 +1,41 @@
-<!DOCTYPE html>
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                body {
+                  background-color: white; /* Ensure the iframe has a white background */
+                }
+    
+                .cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    color: #667eea;
+    text-decoration: none;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cart-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+              </style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -27,6 +64,11 @@
                     <div class="profile-picture">
                         <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Foto de Perfil">
                     </div>
+                    <!-- Botão da Loja (Carrinho) -->
+                    <a href="loja.html" class="cart-btn" title="Loja">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <!-- Botão de Tema -->
                     <div class="theme-toggle-header" id="themeToggleHeader">
                         <i class="fas fa-moon"></i>
                     </div>
@@ -87,150 +129,138 @@
             <p>Explore os lugares mais incríveis do Pantanal Mato-Grossense e Sul-Mato-Grossense</p>
         </div>
         <div class="destinations-grid" id="destinations-container">
-            <!-- Cards de destinos COM LINKS -->
-            <a href="pocone.html">
-                <div class="destination-card" data-category="wildlife">
-                    <div class="card-image" style="background-image: url('img/safari-onça-pintada-pantanal-.jpg');"></div>
-                    <div class="card-content">
-                        <h3>Poconé - MT</h3>
-                        <p>Porta de entrada do Pantanal Norte, ideal para safáris fotográficos e observação de onças-pintadas.</p>
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-water"></i>
-                                <span>Rio Cuiabá</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-tree"></i>
-                                <span>Floresta Alagada</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-paw"></i>
-                                <span>Onças</span>
-                            </div>
+            <!-- Cards de destinos -->
+            <div class="destination-card" data-category="wildlife">
+                <div class="card-image" style="background-image: url('img/safari-onça-pintada-pantanal-.jpg');"></div>
+                <div class="card-content">
+                    <h3>Poconé - MT</h3>
+                    <p>Porta de entrada do Pantanal Norte, ideal para safáris fotográficos e observação de onças-pintadas.</p>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <span>Rio Cuiabá</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tree"></i>
+                            <span>Floresta Alagada</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-paw"></i>
+                            <span>Onças</span>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="bonito.html">
-                <div class="destination-card" data-category="adventure">
-                    <div class="card-image" style="background-image: url('img/bonito_way_bonito_ms_agua_mais_cristalina_mundo_rio_sucuri_bonito_ms.png');"></div>
-                    <div class="card-content">
-                        <h3>Bonito - MS</h3>
-                        <p>Famoso por suas águas cristalinas, rios subterrâneos e mergulhos com peixes coloridos.</p>
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-water"></i>
-                                <span>Rio da Prata</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-tree"></i>
-                                <span>Vegetação Nativa</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-ship"></i>
-                                <span>Canoa</span>
-                            </div>
+            <div class="destination-card" data-category="adventure">
+                <div class="card-image" style="background-image: url('img/bonito_way_bonito_ms_agua_mais_cristalina_mundo_rio_sucuri_bonito_ms.png');"></div>
+                <div class="card-content">
+                    <h3>Bonito - MS</h3>
+                    <p>Famoso por suas águas cristalinas, rios subterrâneos e mergulhos com peixes coloridos.</p>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <span>Rio da Prata</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tree"></i>
+                            <span>Vegetação Nativa</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-ship"></i>
+                            <span>Canoa</span>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="corumba.html">
-                <div class="destination-card" data-category="fishing">
-                    <div class="card-image" style="background-image: url('img/pesca-esportiva_691816072.jpg');"></div>
-                    <div class="card-content">
-                        <h3>Corumbá - MS</h3>
-                        <p>Cidade histórica às margens do Rio Paraguai, com acesso ao Pantanal Sul e pesca esportiva.</p>
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-water"></i>
-                                <span>Rio Paraguai</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-tree"></i>
-                                <span>Lagoas</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-fish"></i>
-                                <span>Pesca</span>
-                            </div>
+            <div class="destination-card" data-category="fishing">
+                <div class="card-image" style="background-image: url('img/pesca-esportiva_691816072.jpg');"></div>
+                <div class="card-content">
+                    <h3>Corumbá - MS</h3>
+                    <p>Cidade histórica às margens do Rio Paraguai, com acesso ao Pantanal Sul e pesca esportiva.</p>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <span>Rio Paraguai</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tree"></i>
+                            <span>Lagoas</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-fish"></i>
+                            <span>Pesca</span>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="aquidauana.html">
-                <div class="destination-card" data-category="culture">
-                    <div class="card-image" style="background-image: url('img/download.jpg');"></div>
-                    <div class="card-content">
-                        <h3>Aquidauana - MS</h3>
-                        <p>Conhecida como a 'Capital do Pantanal', oferece experiências autênticas da cultura pantaneira.</p>
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-water"></i>
-                                <span>Rio Aquidauana</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-tree"></i>
-                                <span>Paisagem Alagada</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-ship"></i>
-                                <span>Canoa Tradicional</span>
-                            </div>
+            <div class="destination-card" data-category="culture">
+                <div class="card-image" style="background-image: url('img/download.jpg');"></div>
+                <div class="card-content">
+                    <h3>Aquidauana - MS</h3>
+                    <p>Conhecida como a 'Capital do Pantanal', oferece experiências autênticas da cultura pantaneira.</p>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <span>Rio Aquidauana</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tree"></i>
+                            <span>Paisagem Alagada</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-ship"></i>
+                            <span>Canoa Tradicional</span>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="caceres.html">
-                <div class="destination-card" data-category="wildlife">
-                    <div class="card-image" style="background-image: url('img/48253e5a4bda21adf02a6c49a0a8ed3e.webp');"></div>
-                    <div class="card-content">
-                        <h3>Cáceres - MT</h3>
-                        <p>Região rica em biodiversidade, perfeita para observação de aves e vida selvagem.</p>
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-water"></i>
-                                <span>Lagoas</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-tree"></i>
-                                <span>Floresta de Galeria</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-paw"></i>
-                                <span>Onças</span>
-                            </div>
+            <div class="destination-card" data-category="wildlife">
+                <div class="card-image" style="background-image: url('img/48253e5a4bda21adf02a6c49a0a8ed3e.webp');"></div>
+                <div class="card-content">
+                    <h3>Cáceres - MT</h3>
+                    <p>Região rica em biodiversidade, perfeita para observação de aves e vida selvagem.</p>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <span>Lagoas</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tree"></i>
+                            <span>Floresta de Galeria</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-paw"></i>
+                            <span>Onças</span>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
 
-            <a href="ladario.html">
-                <div class="destination-card" data-category="adventure">
-                    <div class="card-image" style="background-image: url('img/2afbde9e-1f75-4161-8d8f-92ca02cf47ff.jpg');"></div>
-                    <div class="card-content">
-                        <h3>Ladário - MS</h3>
-                        <p>Cidade portuária com acesso ao Rio Paraguai e experiências únicas de navegação pelo Pantanal.</p>
-                        <div class="card-features">
-                            <div class="feature">
-                                <i class="fas fa-water"></i>
-                                <span>Rio Paraguai</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-tree"></i>
-                                <span>Vegetação Ripária</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-ship"></i>
-                                <span>Navegação</span>
-                            </div>
+            <div class="destination-card" data-category="adventure">
+                <div class="card-image" style="background-image: url('img/2afbde9e-1f75-4161-8d8f-92ca02cf47ff.jpg');"></div>
+                <div class="card-content">
+                    <h3>Ladário - MS</h3>
+                    <p>Cidade portuária com acesso ao Rio Paraguai e experiências únicas de navegação pelo Pantanal.</p>
+                    <div class="card-features">
+                        <div class="feature">
+                            <i class="fas fa-water"></i>
+                            <span>Rio Paraguai</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tree"></i>
+                            <span>Vegetação Ripária</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-ship"></i>
+                            <span>Navegação</span>
                         </div>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
     </section>
 
@@ -287,9 +317,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <!-- Modal de Horários de Voo -->
-<div id="flightModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:1000; overflow:auto;">
-    <div style="background:#fff; margin:60px auto; padding:25px; border-radius:12px; max-width:600px; width:90%; position:relative;">
-        <
 </body>
 </html>
