@@ -13,11 +13,31 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Fundo degradê verde */
+        :root {
+            --bg-color: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #4caf50 100%);
+            --text-color: #333;
+            --card-bg: white;
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --header-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            --modal-bg: rgba(255, 255, 255, 0.95);
+            --modal-text: #333;
+        }
+
+        .dark-mode {
+            --bg-color: linear-gradient(135deg, #0d1b0e 0%, #1b2b1c 50%, #2e7d32 100%);
+            --text-color: #e8f5e9;
+            --card-bg: #1a2a1b;
+            --header-bg: rgba(30, 50, 30, 0.95);
+            --header-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            --modal-bg: rgba(30, 50, 30, 0.95);
+            --modal-text: #e8f5e9;
+        }
+
         body {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #4caf50 100%);
-            color: #333;
+            background: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
+            transition: background 0.3s, color 0.3s;
         }
 
         .container {
@@ -28,9 +48,9 @@
 
         /* Header */
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--header-bg);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--header-shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -49,6 +69,9 @@
             font-weight: bold;
             color: #1b5e20;
         }
+        .dark-mode .logo {
+            color: #a5d6a7;
+        }
         nav ul {
             display: flex;
             list-style: none;
@@ -60,8 +83,14 @@
             font-weight: 600;
             transition: color 0.3s;
         }
+        .dark-mode nav a {
+            color: #a5d6a7;
+        }
         nav a:hover {
             color: #004d00;
+        }
+        .dark-mode nav a:hover {
+            color: #e8f5e9;
         }
         .header-actions {
             display: flex;
@@ -86,7 +115,7 @@
             border-radius: 50%;
             object-fit: cover;
         }
-        .cart-btn, .theme-toggle-header {
+        .cart-btn, .theme-toggle-header, .back-to-home-btn {
             width: 42px;
             height: 42px;
             border-radius: 50%;
@@ -98,6 +127,12 @@
             cursor: pointer;
             position: relative;
             box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .dark-mode .cart-btn,
+        .dark-mode .theme-toggle-header,
+        .dark-mode .back-to-home-btn {
+            background: #2e7d32;
+            color: white;
         }
         .cart-count {
             position: absolute;
@@ -117,7 +152,7 @@
 
         /* Hero */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/1000_F_551706543_LMK1Y6dzaSnj2u1SyUFW2sZQuFp6EayN.jpg');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://placehold.co/1200x600/2e7d32/FFFFFF?text=Pantanal');
             background-size: cover;
             background-position: center;
             color: white;
@@ -156,10 +191,16 @@
             margin: 30px 0;
             border-radius: 16px;
         }
+        .dark-mode .filter-section {
+            background: rgba(30, 50, 30, 0.7);
+        }
         .filter-header h2 {
             font-size: 2rem;
             color: #1b5e20;
             margin-bottom: 10px;
+        }
+        .dark-mode .filter-header h2 {
+            color: #a5d6a7;
         }
         .filter-decoration {
             display: flex;
@@ -194,8 +235,16 @@
             transition: all 0.3s;
             font-size: 0.95rem;
         }
+        .dark-mode .filter-btn {
+            background: #1a2a1b;
+            color: #e8f5e9;
+        }
         .filter-btn:hover, .filter-btn.active {
             background: #43a047;
+            color: white;
+        }
+        .dark-mode .filter-btn:hover, .dark-mode .filter-btn.active {
+            background: #4caf50;
             color: white;
         }
 
@@ -212,13 +261,16 @@
             color: #1b5e20;
             margin-bottom: 12px;
         }
+        .dark-mode .section-title h2 {
+            color: #a5d6a7;
+        }
         .destinations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
         }
         .destination-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
@@ -241,6 +293,9 @@
             color: #1b5e20;
             margin-bottom: 10px;
         }
+        .dark-mode .card-content h3 {
+            color: #a5d6a7;
+        }
         .card-features {
             display: flex;
             flex-wrap: wrap;
@@ -253,6 +308,9 @@
             gap: 4px;
             font-size: 0.9rem;
             color: #555;
+        }
+        .dark-mode .feature {
+            color: #c8e6c9;
         }
         .price {
             font-size: 1.4rem;
@@ -288,10 +346,16 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
+        .dark-mode .contact-container {
+            background: rgba(30, 50, 30, 0.9);
+        }
         .contact-title h2 {
             text-align: center;
             color: #1b5e20;
             margin-bottom: 10px;
+        }
+        .dark-mode .contact-title h2 {
+            color: #a5d6a7;
         }
         .form-group {
             margin-bottom: 16px;
@@ -308,6 +372,15 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 6px;
+            background: white;
+            color: #333;
+        }
+        .dark-mode .form-group input,
+        .dark-mode .form-group select,
+        .dark-mode .form-group textarea {
+            background: #1a2a1b;
+            color: #e8f5e9;
+            border-color: #4caf50;
         }
         .form-group textarea {
             height: 100px;
@@ -320,6 +393,9 @@
             color: white;
             padding: 40px 0 20px;
             text-align: center;
+        }
+        .dark-mode footer {
+            background: #0d3b14;
         }
         .footer-content .logo {
             justify-content: center;
@@ -349,8 +425,7 @@
             align-items: center;
         }
         .cart-content {
-            background: url('') no-repeat center center;
-            background-size: cover;
+            background: var(--modal-bg);
             width: 90%;
             max-width: 600px;
             border-radius: 16px;
@@ -358,27 +433,38 @@
             position: relative;
             max-height: 85vh;
             overflow-y: auto;
-            color: white;
-            backdrop-filter: blur(2px);
+            color: var(--modal-text);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         .close-cart {
             position: absolute;
             top: 15px;
             right: 20px;
             font-size: 1.8rem;
-            color: white;
+            color: var(--modal-text);
             cursor: pointer;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0,0,0,0.1);
             width: 36px;
             height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.3s;
+        }
+        .dark-mode .close-cart {
+            background: rgba(255,255,255,0.1);
+        }
+        .close-cart:hover {
+            background: rgba(0,0,0,0.2);
+        }
+        .dark-mode .close-cart:hover {
+            background: rgba(255,255,255,0.2);
         }
         .cart-header h2 {
             margin-bottom: 20px;
             font-size: 1.8rem;
+            color: var(--modal-text);
         }
         .cart-items {
             margin: 20px 0;
@@ -387,13 +473,17 @@
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+        }
+        .dark-mode .cart-item {
+            border-bottom: 1px solid rgba(255,255,255,0.2);
         }
         .cart-total {
             font-size: 1.5rem;
             font-weight: bold;
             margin: 20px 0;
             text-align: right;
+            color: var(--modal-text);
         }
         .checkout-btn {
             width: 100%;
@@ -405,6 +495,10 @@
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
+            transition: background 0.3s;
+        }
+        .checkout-btn:hover {
+            background: #e55a2b;
         }
     </style>
 </head>
@@ -434,8 +528,13 @@
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count" id="cartCount">0</span>
                     </div>
-                    <div class="theme-toggle-header">
+                    <div class="theme-toggle-header" id="themeToggle">
                         <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="back-to-home-btn">
+                        <a href="index.html" style="color: inherit; text-decoration: none;">
+                            <i class="fas fa-home"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -569,13 +668,14 @@
     </div>
 
     <script>
+        // Mock images since real paths don't exist
         const destinations = [
-            { id: 1, name: "Poconé - MT", category: "wildlife", image: "https://images.unsplash.com/photo-1505142467732-98e9f0ca8e10?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", description: "Porta de entrada do Pantanal Norte...", features: ["Rio Cuiabá", "Floresta Alagada", "Onças"], price: 890 },
-            { id: 2, name: "Bonito - MS", category: "adventure", image: "https://images.unsplash.com/photo-1542323310-986f81c4e4d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", description: "Famoso por suas águas cristalinas...", features: ["Rio da Prata", "Vegetação Nativa", "Canoa"], price: 1250 },
-            { id: 3, name: "Corumbá - MS", category: "fishing", image: "https://images.unsplash.com/photo-1518843783885-cf39e9c20624?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", description: "Cidade histórica às margens do Rio Paraguai...", features: ["Rio Paraguai", "Lagoas", "Pesca"], price: 980 },
-            { id: 4, name: "Aquidauana - MS", category: "culture", image: "https://images.unsplash.com/photo-1469474942773-ff58a4c4c82c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", description: "Conhecida como a 'Capital do Pantanal'...", features: ["Rio Aquidauana", "Paisagem Alagada", "Canoa Tradicional"], price: 720 },
-            { id: 5, name: "Cáceres - MT", category: "wildlife", image: "https://images.unsplash.com/photo-1510048507597-2229c7763556?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", description: "Região rica em biodiversidade...", features: ["Lagoas", "Floresta de Galeria", "Onças"], price: 840 },
-            { id: 6, name: "Ladário - MS", category: "adventure", image: "https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80", description: "Cidade portuária com acesso ao Rio Paraguai...", features: ["Rio Paraguai", "Vegetação Ripária", "Navegação"], price: 790 }
+            { id: 1, name: "Poconé - MT", category: "wildlife", image: "img/safari-onça-pintada-pantanal-.jpg", description: "Porta de entrada do Pantanal Norte...", features: ["Rio Cuiabá", "Floresta Alagada", "Onças"], price: 890 },
+            { id: 2, name: "Bonito - MS", category: "adventure", image: "img/bonito_way_bonito_ms_agua_mais_cristalina_mundo_rio_sucuri_bonito_ms.png", description: "Famoso por suas águas cristalinas...", features: ["Rio da Prata", "Vegetação Nativa", "Canoa"], price: 1250 },
+            { id: 3, name: "Corumbá - MS", category: "fishing", image: "img/bbb319a0-dia-da-mata-atlantica.jpg", description: "Cidade histórica às margens do Rio Paraguai...", features: ["Rio Paraguai", "Lagoas", "Pesca"], price: 980 },
+            { id: 4, name: "Aquidauana - MS", category: "culture", image: "img/cfbio-2024-158-01-INTERNA-SITE.jpg", description: "Conhecida como a 'Capital do Pantanal'...", features: ["Rio Aquidauana", "Paisagem Alagada", "Canoa Tradicional"], price: 720 },
+            { id: 5, name: "Cáceres - MT", category: "wildlife", image: "img/48253e5a4bda21adf02a6c49a0a8ed3e.webp", description: "Região rica em biodiversidade...", features: ["Lagoas", "Floresta de Galeria", "Onças"], price: 840 },
+            { id: 6, name: "Ladário - MS", category: "adventure", image: "img/2afbde9e-1f75-4161-8d8f-92ca02cf47ff.jpg", description: "Cidade portuária com acesso ao Rio Paraguai...", features: ["Rio Paraguai", "Vegetação Ripária", "Navegação"], price: 790 }
         ];
 
         let cart = [];
@@ -617,7 +717,11 @@
                 const id = parseInt(e.target.dataset.id);
                 const dest = destinations.find(d => d.id === id);
                 const existing = cart.find(item => item.id === id);
-                if (existing) existing.quantity++; else cart.push({ ...dest, quantity: 1 });
+                if (existing) {
+                    existing.quantity++;
+                } else {
+                    cart.push({ ...dest, quantity: 1 });
+                }
                 updateCart();
                 alert(`"${dest.name}" adicionado ao carrinho!`);
             }
@@ -653,16 +757,21 @@
         }
 
         // Modal
-        document.getElementById('openCart').addEventListener('click', () => {
+        document.getElementById('openCart').addEventListener('click', (e) => {
+            e.preventDefault();
             document.getElementById('cartModal').style.display = 'flex';
         });
         document.getElementById('closeCart').addEventListener('click', () => {
             document.getElementById('cartModal').style.display = 'none';
         });
         document.querySelector('.checkout-btn').addEventListener('click', () => {
-            if (cart.length === 0) { alert('Carrinho vazio!'); return; }
+            if (cart.length === 0) { 
+                alert('Carrinho vazio!');
+                return; 
+            }
             alert('Compra finalizada com sucesso! Entraremos em contato.');
-            cart = []; updateCart();
+            cart = []; 
+            updateCart();
             document.getElementById('cartModal').style.display = 'none';
         });
 
@@ -671,6 +780,27 @@
             e.preventDefault();
             alert('Solicitação enviada!');
             e.target.reset();
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or respect OS preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+            body.classList.add('dark-mode');
+            icon.className = 'fas fa-sun';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
         });
     </script>
 </body>
